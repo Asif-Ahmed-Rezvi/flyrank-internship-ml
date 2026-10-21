@@ -1,0 +1,26 @@
+{
+  "artifact": "content_action_playbook",
+  "method": "transparent_rule_based_baseline",
+  "input_rows": 30000,
+  "pages_ranked": 30000,
+  "pages_selected": 9759,
+  "pages_not_selected": 20241,
+  "selected_share_pct": 32.53,
+  "reason_code_counts": {
+    "not_selected": 20241,
+    "high_visibility_low_ctr": 9759
+  },
+  "selection_rule": {
+    "minimum_impressions_90d": 500,
+    "average_position_min_exclusive": 0,
+    "average_position_max_inclusive": 20,
+    "ctr_threshold_pct": 0.5,
+    "score_formula": "log1p(impressions_90d) * max(0, 0.5 - ctr) / 0.5 * visibility_gate"
+  },
+  "selected_score_summary": {
+    "median": 5.393032,
+    "minimum": 0.128269,
+    "maximum": 12.248552
+  },
+  "interpretation": "Decision-support ranking only; not a prediction of future performance or a guarantee of business impact."
+}
