@@ -58,3 +58,11 @@ in Colab, straight from your repo):
 When your paper is deployed, put its exact URL in `../submission/paper_url.txt` (one line).
 ML-12 lives in your capstone notebook's closing markdown cells — it's the smallest card and
 the easiest to forget, which is exactly why it has a row here.
+
+
+## Aggregate receipts
+
+- [Client-grouped model metrics](outputs/model_metrics.json) — aggregate-only metrics and split details for the March-to-April warehouse experiment.
+- [Action playbook metrics](outputs/action_playbook_metrics.json) — aggregate-only selection counts and rule definition for the separate 30,000-row starter-data analysis.
+
+These receipts do not include raw exports, private queries, or item-level model predictions.
