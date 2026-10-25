@@ -1,0 +1,53 @@
+{
+  "artifact": "client_grouped_model_evaluation",
+  "source_notebook": "work/notebooks/w05_model.ipynb",
+  "validation_notebook": "work/notebooks/w06_validation_audit.ipynb",
+  "split": {
+    "strategy": "GroupShuffleSplit",
+    "test_size": 0.25,
+    "random_state": 42,
+    "train_rows": 133473,
+    "test_rows": 43264,
+    "train_clients": 35,
+    "test_clients": 12,
+    "client_overlap": 0,
+    "full_feature_frame_rows": 176737,
+    "total_clients": 47,
+    "overall_decline_prevalence": 0.5319,
+    "train_decline_prevalence": 0.5575,
+    "test_decline_prevalence": 0.4529
+  },
+  "features": [
+    "march_impressions",
+    "march_clicks",
+    "march_mean_position",
+    "march_impression_days",
+    "march_active_days_span"
+  ],
+  "target": "april_decline_label = 1 when April impressions decline by more than 20% relative to March",
+  "metrics": [
+    {
+      "method": "Week-4 rule baseline",
+      "precision_at_20": 0.65,
+      "precision_at_50": 0.56,
+      "roc_auc": 0.5178,
+      "average_precision": 0.475
+    },
+    {
+      "method": "Logistic Regression",
+      "precision_at_20": 0.65,
+      "precision_at_50": 0.54,
+      "roc_auc": 0.5779,
+      "average_precision": 0.515
+    }
+  ],
+  "interpretation": "Mixed evidence: the model ties at Precision@20, is slightly lower at Precision@50, and is higher on ROC-AUC and average precision. This is decision-support evidence, not a causal or future-period guarantee.",
+  "related_action_playbook": {
+    "input_rows": 30000,
+    "pages_selected": 9759,
+    "pages_not_selected": 20241,
+    "selected_share_pct": 32.53,
+    "artifact": "work/outputs/action_playbook_metrics.json"
+  },
+  "privacy_note": "Aggregate-only public metrics; no client IDs, content IDs, URLs, queries, or row-level predictions."
+}
