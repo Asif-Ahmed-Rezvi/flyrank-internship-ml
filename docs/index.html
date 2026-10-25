@@ -78,7 +78,7 @@ header{padding:22px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:
 <ul><li>April trend and outcome columns are excluded from model features; identifiers are excluded as predictors.</li><li>The feature contract restricts inputs to March, before the April outcome window.</li><li>A deliberate leakage experiment gave AUC 1.000 when the April-derived <code>april_trend_pct</code> was added, versus 0.598 for the five March features in that contract check. The leaky field was removed; the perfect score is treated as a warning, not a result.</li><li>The grouped split checks confirm zero client overlap and no train/test row-index overlap. These checks reduce known leakage risks but cannot prove that every possible source of leakage is absent.</li></ul>
 </section>
 <section id="results"><h2>4. Results: model versus baseline</h2>
-<p>The table below reports both approaches on the same client-grouped test split. Precision@k measures the share of positive-label items among the top k ranked items; ROC-AUC measures pairwise ranking discrimination; average precision summarizes the precision-recall curve. The observed test-set decline rate was 53.2%.</p>
+<p>The table below reports both approaches on the same client-grouped test split. Precision@k measures the share of positive-label items among the top k ranked items; ROC-AUC measures pairwise ranking discrimination; average precision summarizes the precision-recall curve. The full feature-frame decline rate was 53.2%; the observed client-grouped test-set decline rate was 45.3%.</p>
 <div class="table-wrap"><table><thead><tr><th>Metric</th><th class="num">Rule baseline</th><th class="num">Logistic regression</th><th>Interpretation</th></tr></thead><tbody>
 <tr><td>Precision@20</td><td class="num">0.650</td><td class="num">0.650</td><td>Tie in the smallest review queue</td></tr>
 <tr><td>Precision@50</td><td class="num">0.560</td><td class="num">0.540</td><td>Baseline is higher by 0.020</td></tr>
@@ -134,12 +134,13 @@ header{padding:22px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:
 <a href="https://github.com/Asif-Ahmed-Rezvi/flyrank-internship-ml/blob/main/work/notebooks/w05_model.ipynb">Model experiment</a>
 <a href="https://github.com/Asif-Ahmed-Rezvi/flyrank-internship-ml/blob/main/work/notebooks/w06_validation_audit.ipynb">Validation audit</a>
 <a href="https://github.com/Asif-Ahmed-Rezvi/flyrank-internship-ml/blob/main/work/notebooks/w07_action_playbook.ipynb">Action playbook</a>
+<a href="https://github.com/Asif-Ahmed-Rezvi/flyrank-internship-ml/blob/main/work/notebooks/capstone.ipynb">Capstone notebook</a>
 </div>
 <p>For reproducibility, use the notebook-reported split seed (<code>42</code>) and the documented March-to-April feature/label windows. The client-grouped split, preprocessing, and metric definitions are recorded in the validation notebook. The paper does not publish page-level exports or private query data.</p>
 <p class="small">Design note: the page uses a single-column reading area with a compact contents index, explicit section headings, responsive tables, text summaries under charts, and SVG chart descriptions to keep the result readable on mobile and with assistive technology.</p>
 </section>
 <section id="credit"><h2>8. Acknowledgments and data credit</h2>
-<p>Built on the <a href="https://flyrank.ai" rel="noopener noreferrer">FlyRank ML Internship dataset</a>. Thanks to FlyRank for providing the dataset and learning context for this applied research exercise.</p>
+<p><a href="https://flyrank.ai" rel="noopener noreferrer">Built on the FlyRank ML Internship dataset</a>. Thanks to FlyRank for providing the dataset and learning context for this applied research exercise.</p>
 <p class="small">This is an internship research artifact for learning and decision support. It is not an official FlyRank product claim or a guarantee of outcomes for any individual page.</p>
 </section>
 </main>
